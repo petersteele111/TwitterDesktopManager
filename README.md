@@ -1,5 +1,5 @@
 # Welcome to Twitter Desktop Manager
-[.NET Core](https://img.shields.io/github/workflow/status/petersteele111/TwitterDesktopManager/.NET%20Core)
+<img>![.NET Core](https://img.shields.io/github/workflow/status/petersteele111/TwitterDesktopManager/.NET%20Core)</img>
 Welcome to the Twitter Desktop Manager. This application was built for my CIT255 Object Oriented Programming class at NMC during the Fall 2020 Semester. This project was built using a custom MVVM pattern and N-Tier design. I also implemented the Twitter API via TweetInvi as well to simplify the process since this was a short 4 week project. I plan to keep working on an updating this project for the future to include many more features to make the application useful and unique. Thanks for stopping by and I hope you enjoy what I have created!
 
 ## Application Description
