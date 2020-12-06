@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="TDM.Presentation.Controls.LoginMainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:nav="clr-namespace:TDM.Presentation.State.Navigators"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid Background="#202020">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="1" Text="Welcome To Twitter Desktop Manager" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="36" />
+            <Button 
+                Grid.Row="2"
+                Grid.Column="1" 
+                Height="50"
+                Width="200"
+                Content="Returning User"
+                FontSize="18"
+                Style="{StaticResource LoginButton}"
+                Command="{Binding DataContext.UpdateCurrentViewModelCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static nav:ViewType.ReturningUser}"/>
+            <Button 
+                Grid.Row="2"
+                Grid.Column="2"
+                Height="50"
+                Width="200"
+                Content="New User" 
+                FontSize="18" 
+                Style="{StaticResource RefreshFeedButton}"
+                Command="{Binding DataContext.UpdateCurrentViewModelCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static nav:ViewType.NewUser}"/>
+        </Grid>
+       
+    </Grid>
+</UserControl>

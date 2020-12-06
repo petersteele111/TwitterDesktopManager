@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="TDM.Presentation.Controls.PinVerificationUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:nav="clr-namespace:TDM.Presentation.State.Navigators"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            Text="Login To Twitter Desktop Manager" 
+            FontSize="36" 
+            Foreground="White" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"/>
+        
+        <TextBlock 
+            Grid.Row="2" 
+            Foreground="white" 
+            TextWrapping="WrapWithOverflow" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            FontSize="18" 
+            Padding="20" 
+            Text="Please authorize the application to access your account. A tab should have opened requesting you to log into Twitter, and to authorize the application. You are then given a PIN number. Input it below and press the verify pin button to be logged in."/>
+        
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label 
+                    Content="Pin Code: " 
+                    FontSize="36" 
+                    Foreground="White" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"/>
+                
+                <TextBox 
+                    HorizontalAlignment="Center"
+                    Width="200" 
+                    Height="50" 
+                    VerticalAlignment="Center" 
+                    FontSize="38" 
+                    Text="{Binding PinCode}"/>
+            </StackPanel>
+            
+            <Button 
+                Content="Verify Pin" 
+                FontSize="28" 
+                HorizontalAlignment="Center" 
+                Style="{StaticResource ResourceKey=LoginButton}"
+                Width="200"
+                Margin="0 50 0 0" 
+                Command="{Binding PinVerificationCommand}"/>
+            
+            <Button 
+                Content="Back"
+                FontSize="28" 
+                HorizontalAlignment="Center"
+                Style="{StaticResource ResourceKey=QuitAppButton}"
+                Width="200" 
+                Margin="0 50 0 0" 
+                Command="{Binding DataContext.UpdateCurrentViewModelCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static nav:ViewType.MainLogin}"/>
+        </StackPanel>
+        
+        
+
+    </Grid>
+</UserControl>

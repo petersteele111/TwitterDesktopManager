@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="TDM.Presentation.Controls.TweetUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TDM.Presentation.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Start Tweet Section -->
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.RowSpan="2" 
+                Grid.ColumnSpan="2"
+                FontSize="28" 
+                TextWrapping="Wrap"
+                Margin="20 0"
+                MaxLength="280"
+                Text="{Binding TweetBody}"/>
+            
+            <Button 
+                Style="{StaticResource LoginButton}"
+                Content="Tweet" 
+                Width="200"
+                HorizontalAlignment="Right"
+                Grid.Column="1"
+                Grid.Row="2"
+                Margin="0 0 20 0"
+                Command="{Binding PublishTweetCommand}"/>
+            
+            
+            <!-- Start Tweet Control Section -->
+            <TextBlock
+                Text="Tweet Control"
+                Foreground="white" 
+                FontSize="36"
+                FontWeight="Bold"
+                Grid.Row="4" 
+                HorizontalAlignment="Center"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"/>
+            
+            <TextBox 
+                Grid.Row="5"
+                Grid.Column="0" 
+                Text="{Binding SearchString}" 
+                Height="50"
+                FontSize="36"
+                Margin="20 0 0 0"/>
+            
+            <Button
+                Grid.Row="5"
+                Grid.Column="1"
+                Content="Search"
+                Style="{StaticResource TweetControlButton}" 
+                Width="200"
+                Command="{Binding SearchTweetsCommand}"
+                Margin="20 0 20 0" 
+                HorizontalAlignment="Right"/>
+
+            <StackPanel Orientation="Vertical" Grid.Row="6">
+
+                <TextBlock 
+                    Text="Oldest Date"
+                    Foreground="White"
+                    FontSize="16"
+                    Margin="20 0 0 10"/>
+
+                <DatePicker 
+                Height="50"
+                Margin="20 0 0 0"
+                BorderThickness="0"
+                Width="200"
+                SelectedDate="{Binding OldDate, Mode=TwoWay}"
+                FontSize="16"
+                HorizontalAlignment="Left"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="7">
+
+                <TextBlock
+                    Text="Newest Date"
+                    Foreground="White"
+                    FontSize="16"
+                    Margin="20 0 0 10"/>
+
+                <DatePicker
+                Height="50"
+                Margin="20 0 0 0"
+                BorderThickness="0"
+                Width="200"
+                SelectedDate="{Binding NewDate, Mode=TwoWay}"
+                FontSize="16" HorizontalAlignment="Left"/>
+
+            </StackPanel>
+            
+
+            <Button
+                Grid.Row="6" 
+                Grid.Column="1"
+                Grid.RowSpan="2" 
+                VerticalAlignment="Center"
+                Width="200" 
+                Style="{StaticResource TweetControlButton}"
+                Content="Filter" 
+                Margin="20 0 20 0"
+                HorizontalAlignment="Right"
+                Command="{Binding FilterTweetsCommand}"/>
+
+            <Button 
+                Grid.Row="8"
+                Grid.Column="0"
+                Content="Oldest Tweets First"
+                Width="200" 
+                Style="{StaticResource TweetControlButton}" 
+                Grid.ColumnSpan="2" 
+                Command="{Binding SortByOldestTweetsFirstCommand}"/>
+            
+            <Button
+                Grid.Row="11"
+                Grid.Column="1" 
+                Content="Delete Tweets" 
+                Width="200" 
+                Style="{StaticResource DeleteTweetButton}"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Right"
+                Margin="0 0 20 0"
+                Command="{Binding DeleteTweetCommand}"/>
+
+            <Button
+                Grid.Row="8"
+                Grid.Column="1" 
+                Content="Clear Constraints" 
+                Width="200" 
+                Style="{StaticResource QuitAppButton}"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Right"
+                Margin="0 0 20 0"
+                Command="{Binding ClearConstraintsCommand}"/>
+
+        </Grid>
+        
+    </Grid>
+</UserControl>
